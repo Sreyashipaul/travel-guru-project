@@ -11,7 +11,7 @@ const Search = () => {
     const { bookingInfo } = useContext(UserContext)
     const [hotels, setHotels] = useState([]);
     useEffect(() => {
-      const bookingLocation = fakeDatas.find(fakeData => fakeData.id.toString() === id)
+      const bookingLocation = fakeDatas.find(location => location.id.toString() === id)
       setHotels(previousState => ([...previousState, ...bookingLocation.hotels]))
     }, [id])
     return (

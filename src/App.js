@@ -7,6 +7,7 @@ import {
   Switch,
   Route,
   Router,
+  useLocation,
   
 } from "react-router-dom";
 
@@ -24,7 +25,7 @@ import Header from './Components/header/Header';
 
 export const UserContext = createContext();
 function App() {
-  
+  const location = useLocation();
   const [user, setUser] = useState(null);
   const [bookingInfo, setBookingInfo] = useState({});
 
@@ -43,7 +44,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser, bookingInfo, setBookingInfo, signOUtUser }}>
-      <div>
+      <div className= {`${location.pathname==='/'|| location.pathname.includes('booking')?"home":""}`}>
       
        <Header></Header>
         <firebaseAuth> </firebaseAuth>
